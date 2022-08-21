@@ -17,7 +17,12 @@ const BrandedVase = () => {
          }}
       >
          <Box flex="1" className="vase-circle">
-            <img src={Vase} alt="plant" className="explore-img" />
+            <img
+               src={Vase}
+               alt="plant"
+               className="explore-img"
+               loading="lazy"
+            />
          </Box>
          <Box flex="1.5" sx={{ textAlign: "left" }}>
             <Typography

@@ -96,7 +96,12 @@ const Hero = () => {
                height: { xs: "270px", md: "500px" },
             }}
          >
-            <img src={HeroImg} alt="hero-img" className="hero-img" />
+            <img
+               src={HeroImg}
+               alt="hero-img"
+               className="hero-img"
+               loading="lazy"
+            />
          </Box>
       </Box>
    );

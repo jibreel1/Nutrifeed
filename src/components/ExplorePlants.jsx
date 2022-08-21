@@ -17,7 +17,12 @@ const ExplorePlants = () => {
          }}
       >
          <Box flex="1">
-            <img src={Plants} alt="plant" className="explore-img" />
+            <img
+               src={Plants}
+               alt="plant"
+               className="explore-img"
+               loading="lazy"
+            />
          </Box>
          <Box flex="1.5" sx={{ textAlign: "left" }}>
             <Typography

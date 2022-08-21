@@ -51,7 +51,7 @@ const Navbar = () => {
             className="navbar_img"
             sx={{ width: { xs: "120px", md: "170px" } }}
          >
-            <img src={Logo} alt="logo" className="logo" />
+            <img src={Logo} alt="logo" className="logo" loading="lazy" />
          </Box>
          <Box
             component="ul"

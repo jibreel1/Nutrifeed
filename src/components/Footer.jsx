@@ -26,7 +26,7 @@ const Footer = () => {
                flexDirection: { xs: "column", sm: "row" },
             }}
          >
-            <img src={Logo2} alt="Logo" className="footer-img" />
+            <img src={Logo2} alt="Logo" className="footer-img" loading="lazy" />
             <Box
                display="flex"
                sx={{
