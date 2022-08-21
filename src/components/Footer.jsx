@@ -46,6 +46,9 @@ const Footer = () => {
                justifyContent: "center",
                alignItems: "center",
                mb: "30px",
+               textAlign: "center",
+               lineHeight: "32px",
+               px: { xs: "32px", md: "54px", lg: "72px" },
             }}
          >
             <p className="footer-design">
@@ -55,7 +58,7 @@ const Footer = () => {
                </a>
                and
                <a href="#!" className="footer-designer">
-                  Bolanle
+                  Rasaq
                </a>
             </p>
          </Box>
