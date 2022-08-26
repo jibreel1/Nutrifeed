@@ -4,6 +4,8 @@ const Methods = ({ title, subtitle, icon }) => {
    return (
       <Box
          className="method"
+         maxWidth="300px"
+         minWidth="270px"
          display="flex"
          alignItems="center"
          flexDirection="column"

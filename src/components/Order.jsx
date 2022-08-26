@@ -9,16 +9,23 @@ import {
 
 const OrderItem = ({ icon, title }) => {
    return (
-      <div>
+      <Box
+         display="flex"
+         justifyContent="center"
+         alignItems="center"
+         flexDirection="column"
+      >
          <Box
-            width="175px"
-            height="175px"
-            bgcolor="#D9D9D9"
-            borderRadius="50%"
             display="flex"
             justifyContent="center"
             alignItems="center"
+            bgcolor="#D9D9D9"
+            borderRadius="50%"
             mb="18px"
+            sx={{
+               width: { xs: "120px", md: "175px" },
+               height: { xs: "120px", md: "175px" },
+            }}
          >
             {icon}
          </Box>
@@ -33,7 +40,7 @@ const OrderItem = ({ icon, title }) => {
          >
             {title}
          </Typography>
-      </div>
+      </Box>
    );
 };
 
@@ -62,7 +69,9 @@ const Order = () => {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            gap="90px"
+            sx={{
+               gap: { xs: "50px", md: "90px" },
+            }}
             flexWrap="wrap"
          >
             <OrderItem title="Choose Plant" icon={<LocalFloristOutlined />} />

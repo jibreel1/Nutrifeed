@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import { CloseOutlined } from "@mui/icons-material";
 
 const Sidebar = ({ toggle, links, showMenu }) => {
@@ -10,7 +11,7 @@ const Sidebar = ({ toggle, links, showMenu }) => {
          <ul className="sidebar_links">
             {links.map(link => (
                <li key={link.id} onClick={toggle}>
-                  <a href={link.path}>{link.name}</a>
+                  <Link to={link.path}>{link.name}</Link>
                </li>
             ))}
          </ul>

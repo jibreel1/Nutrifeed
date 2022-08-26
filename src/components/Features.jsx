@@ -46,8 +46,11 @@ const Features = () => {
          <Box
             sx={{
                display: "flex",
-               gap: { xs: "40px", md: "70px", lg: "100px" },
+               justifyContent: "center",
+               gap: { xs: "40px", md: "70px" },
                flexDirection: { xs: "column", sm: "row" },
+               alignItems: { xs: "center", sm: "flex-start" },
+               flexWrap: { xs: "nowrap", sm: "wrap" },
             }}
          >
             <Methods

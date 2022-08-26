@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { Box } from "@mui/material";
 import {
@@ -28,7 +29,7 @@ const Navbar = () => {
       {
          id: "3",
          name: "Plants",
-         path: "#plant",
+         path: "/plantsPage",
       },
       {
          id: "4",
@@ -45,7 +46,7 @@ const Navbar = () => {
       <Box
          component="nav"
          className="navbar"
-         sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, pt: "40px" }}
+         sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, pt: "25px" }}
       >
          <Box
             className="navbar_img"
@@ -65,7 +66,7 @@ const Navbar = () => {
          >
             {links.map(link => (
                <li key={link.id}>
-                  <a href={link.path}>{link.name}</a>
+                  <Link to={link.path}>{link.name}</Link>
                </li>
             ))}
          </Box>
