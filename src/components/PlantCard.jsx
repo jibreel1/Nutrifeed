@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const PlantCard = ({ plant }) => {
    return (
-      <Box className="plant-card" width="300px" key={plant.id}>
+      <Box className="plant-card">
          <img src={plant.image} alt={plant.name} loading="lazy" />
-         <Box display="flex" justifyContent="space-between" my="1em">
+         <Box display="flex" justifyContent="space-between" my="1em" mx="1em">
             <Typography
                component="h3"
                variant="h3"
@@ -18,11 +18,18 @@ const PlantCard = ({ plant }) => {
                ${plant.price}
             </Typography>
          </Box>
-         <Box display="flex" justifyContent="space-between">
+         <Box display="flex" justifyContent="space-between" mx="1em" pb=".5em">
             <Typography component="p" fontSize="16px">
                <Link to={`/plantsPage/${plant.id}`}>Read more...</Link>
             </Typography>
-            <Typography component="p" fontSize="16px">
+            <Typography
+               component="p"
+               fontSize="16px"
+               bgcolor="#01321c"
+               p="0.5em 1em"
+               color="#fff"
+               sx={{ cursor: "pointer" }}
+            >
                Buy
             </Typography>
          </Box>

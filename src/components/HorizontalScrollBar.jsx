@@ -10,9 +10,9 @@ const LeftArrow = () => {
    const { scrollPrev } = useContext(VisibilityContext);
 
    return (
-      <Box onClick={() => scrollPrev()} className="left-arrow">
+      <div onClick={() => scrollPrev()} className="left-arrow">
          <WestOutlined />
-      </Box>
+      </div>
    );
 };
 
@@ -20,9 +20,9 @@ const RightArrow = () => {
    const { scrollNext } = useContext(VisibilityContext);
 
    return (
-      <Box onClick={() => scrollNext()} className="right-arrow">
+      <div onClick={() => scrollNext()} className="right-arrow">
          <EastOutlined />
-      </Box>
+      </div>
    );
 };
 
@@ -30,7 +30,7 @@ const HorizontalScrollbar = ({ plants }) => {
    return (
       <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
          {plants.slice(0, 7).map(plant => (
-            <Box key={plant.id} mx="20px">
+            <Box key={plant.id} mx="20px" height="515px">
                <PlantCard plant={plant} />
             </Box>
          ))}

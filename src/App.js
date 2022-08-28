@@ -50,7 +50,13 @@ const App = () => {
             <Route path="/" element={<Home plants={plants} />} />
             <Route
                path="/plantsPage"
-               element={<PlantsPage plants={plants} isLoading={loading} />}
+               element={
+                  <PlantsPage
+                     plants={plants}
+                     setPlants={setPlants}
+                     isLoading={loading}
+                  />
+               }
             />
             <Route path="/plantsPage/:id" element={<PlantsDetailsPage />} />
          </Routes>

@@ -32,7 +32,7 @@ const Plants = ({ plants }) => {
             <Typography
                component="p"
                sx={{
-                  textAlign: { xs: "right", md: "left" },
+                  textAlign: { xs: "left", sm: "right" },
                   fontSize: { xs: "20px", md: "24px" },
                }}
             >

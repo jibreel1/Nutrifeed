@@ -40,17 +40,17 @@ const Subscribe = () => {
                ...free discount for you after subscribing
             </Typography>
          </div>
-         <div className="input">
+         <Box className="input" mt="50px">
             <input
                type="email"
-               className="input-child"
+               className="input-child item"
                placeholder="...your email address"
             />
             <button type="submit" className="input-btn btn">
                Subscribe Now
                <ChevronRightOutlined />
             </button>
-         </div>
+         </Box>
       </Box>
    );
 };

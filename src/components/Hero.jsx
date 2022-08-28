@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { EastOutlined } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 import HeroImg from "../assets/nutrifeed-woman-crop2.png";
 
@@ -71,11 +72,10 @@ const Hero = () => {
                      color: "#01321C",
                      fontSize: "24px",
                      fontWeight: "500",
-                     // borderRadius: "16px",
                      cursor: "pointer",
                   }}
                >
-                  Shop now
+                  <Link to="/plantsPage">Shop now</Link>
                </Box>
                <Typography
                   className="hero-explore"
@@ -86,7 +86,9 @@ const Hero = () => {
                   gap="5px"
                   sx={{ cursor: "pointer" }}
                >
-                  Explore Plants <EastOutlined />
+                  <Link to="/plantsPage">
+                     Explore Plants <EastOutlined />
+                  </Link>
                </Typography>
             </Box>
          </Box>
