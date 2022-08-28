@@ -46,7 +46,7 @@ const Navbar = () => {
       <Box
          component="nav"
          className="navbar"
-         sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, pt: "25px" }}
+         sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, py: "25px" }}
       >
          <Box
             className="navbar_img"

@@ -34,6 +34,11 @@ li {
    justify-content: space-between;
    align-items: center;
    background-color: #01321c;
+   height: 80px;
+
+   @media screen and (min-width: 900px) {
+      height: 100px;
+   }
 
    &_img {
       .logo {
@@ -436,9 +441,9 @@ li {
    height: 525px;
 }
 
-.react-horizontal-scrolling-menu--arrow-left,
-.react-horizontal-scrolling-menu--arrow-right {
-   @media screen and (max-width: 600px) {
-      display: none;
-   }
-}
+// .react-horizontal-scrolling-menu--arrow-left,
+// .react-horizontal-scrolling-menu--arrow-right {
+//    @media screen and (max-width: 600px) {
+//       display: none;
+//    }
+// }

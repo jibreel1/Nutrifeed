@@ -10,9 +10,13 @@ const LeftArrow = () => {
    const { scrollPrev } = useContext(VisibilityContext);
 
    return (
-      <div onClick={() => scrollPrev()} className="left-arrow">
+      <Box
+         onClick={() => scrollPrev()}
+         className="left-arrow"
+         sx={{ display: { xs: "none", sm: "flex" } }}
+      >
          <WestOutlined />
-      </div>
+      </Box>
    );
 };
 
@@ -20,9 +24,13 @@ const RightArrow = () => {
    const { scrollNext } = useContext(VisibilityContext);
 
    return (
-      <div onClick={() => scrollNext()} className="right-arrow">
+      <Box
+         onClick={() => scrollNext()}
+         className="right-arrow"
+         sx={{ display: { xs: "none", sm: "flex" } }}
+      >
          <EastOutlined />
-      </div>
+      </Box>
    );
 };
 
