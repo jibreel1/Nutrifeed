@@ -408,6 +408,7 @@ li {
 .left-arrow {
    cursor: pointer;
    display: flex;
+   background-color: transparent;
    justify-content: center;
    align-items: center;
    color: #01321c;
@@ -441,9 +442,6 @@ li {
    height: 525px;
 }
 
-// .react-horizontal-scrolling-menu--arrow-left,
-// .react-horizontal-scrolling-menu--arrow-right {
-//    @media screen and (max-width: 600px) {
-//       display: none;
-//    }
-// }
+.react-horizontal-scrolling-menu--scroll-container {
+   padding-left: 20px;
+}

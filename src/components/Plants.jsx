@@ -13,15 +13,15 @@ const Plants = ({ plants }) => {
    shuffleArray(plants);
 
    return (
-      <Box
-         className="plant"
-         sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, mt: "100px" }}
-      >
+      <Box className="plant" sx={{ mt: "100px" }}>
          <Box
             justifyContent="space-between"
             alignItems="center"
             mb="60px"
-            sx={{ display: { xs: "block", md: "flex" } }}
+            sx={{
+               display: { xs: "block", md: "flex" },
+               px: { xs: "32px", md: "54px", lg: "72px" },
+            }}
          >
             <Typography
                component="h3"

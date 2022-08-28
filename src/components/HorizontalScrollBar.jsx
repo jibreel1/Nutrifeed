@@ -13,7 +13,7 @@ const LeftArrow = () => {
       <Box
          onClick={() => scrollPrev()}
          className="left-arrow"
-         sx={{ display: { xs: "none", sm: "flex" } }}
+         sx={{ display: { xs: "none", sm: "flex" }, ml: { sm: "20px" } }}
       >
          <WestOutlined />
       </Box>
@@ -27,7 +27,11 @@ const RightArrow = () => {
       <Box
          onClick={() => scrollNext()}
          className="right-arrow"
-         sx={{ display: { xs: "none", sm: "flex" } }}
+         sx={{
+            display: { xs: "none", sm: "flex" },
+            ml: { sm: "20px", md: "0px" },
+            mr: { sm: "20px" },
+         }}
       >
          <EastOutlined />
       </Box>
