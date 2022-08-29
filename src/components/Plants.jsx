@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import HorizontalScrollbar from "./HorizontalScrollBar";
 
-const Plants = ({ plants }) => {
+const Plants = ({ plants, title }) => {
    const shuffleArray = array => {
       for (let i = array.length - 1; i > 0; i--) {
          const j = Math.floor(Math.random() * (i + 1));
@@ -27,7 +27,7 @@ const Plants = ({ plants }) => {
                component="h3"
                sx={{ fontSize: { xs: "28px", md: "38px", lg: "48px" } }}
             >
-               Latest Plants
+               {title}
             </Typography>
             <Typography
                component="p"

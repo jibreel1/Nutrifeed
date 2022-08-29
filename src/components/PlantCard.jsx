@@ -20,7 +20,9 @@ const PlantCard = ({ plant }) => {
          </Box>
          <Box display="flex" justifyContent="space-between" mx="1em" pb=".5em">
             <Typography component="p" fontSize="16px">
-               <Link to={`/plantsPage/${plant.id}`}>Read more...</Link>
+               <Link to={`/plantsPage/${plant.id}`} state={{ id: plant.id }}>
+                  Read more...
+               </Link>
             </Typography>
             <Typography
                component="p"

@@ -10,7 +10,7 @@ const Home = ({ plants }) => {
          <Hero />
          <Features />
          <About />
-         <Plants plants={plants} />
+         <Plants plants={plants} title="Latest Plants" />
          <Order />
       </div>
    );

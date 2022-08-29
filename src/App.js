@@ -28,6 +28,7 @@ const Wrapper = ({ children }) => {
 const App = () => {
    const [plants, setPlants] = useState([]);
    const [loading, setLoading] = useState(false);
+   const [count, setCount] = useState(0);
    const plantsCollectionRef = collection(db, "plants");
 
    // console.log(loading);
@@ -58,7 +59,18 @@ const App = () => {
                   />
                }
             />
-            <Route path="/plantsPage/:id" element={<PlantsDetailsPage />} />
+            <Route
+               path="/plantsPage/:id"
+               element={
+                  <PlantsDetailsPage
+                     plants={plants}
+                     loading={loading}
+                     setLoading={setLoading}
+                     count={count}
+                     setCount={setCount}
+                  />
+               }
+            />
          </Routes>
          <Footer />
       </Router>

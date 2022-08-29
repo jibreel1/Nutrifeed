@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { Box } from "@mui/material";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
-import { EastOutlined } from "@mui/icons-material";
-import { WestOutlined } from "@mui/icons-material";
+import { EastOutlined, WestOutlined } from "@mui/icons-material";
 import PlantCard from "./PlantCard";
 
 const LeftArrow = () => {

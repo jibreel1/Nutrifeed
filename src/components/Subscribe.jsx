@@ -26,7 +26,7 @@ const Subscribe = () => {
                   fontSize: { xs: "40px", sm: "56px" },
                }}
             >
-               Subscribe and get discount from us
+               Subscribe to our Weekly Newsletter
             </Typography>
             <Typography
                variant="p"
