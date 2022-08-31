@@ -10,7 +10,12 @@ const Home = ({ plants, onAdd, onRemove, cartItems }) => {
          <Hero />
          <Features />
          <About />
-         <Plants plants={plants} onAdd={onAdd} onRemove={onRemove} />
+         <Plants
+            plants={plants}
+            onAdd={onAdd}
+            onRemove={onRemove}
+            cartItems={cartItems}
+         />
          <Order />
       </div>
    );

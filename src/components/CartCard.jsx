@@ -8,7 +8,6 @@ const CartCard = ({ cartItems, onAdd, onRemove }) => {
          className="cart"
          sx={{
             width: { xs: "100%", sm: "400px" },
-            // height: "100%",
             borderRadius: "10px",
          }}
       >
@@ -57,7 +56,17 @@ const CartCard = ({ cartItems, onAdd, onRemove }) => {
                   >
                      Checkout
                   </Typography>
-                  <Typography fontWeight="700" fontSize="20px">
+                  <Typography component="h4" fontWeight="700" fontSize="20px">
+                     <Typography
+                        component="span"
+                        display="block"
+                        color="hsl(219, 9%, 45%)"
+                        fontWeight="400"
+                        fontSize="16px"
+                        textAlign="center"
+                     >
+                        Total
+                     </Typography>
                      ${itemsPrice.toFixed(2)}
                   </Typography>
                </Box>

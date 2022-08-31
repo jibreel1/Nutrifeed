@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Stack, Box, Typography } from "@mui/material";
+import { Stack, Box } from "@mui/material";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { useLocation } from "react-router-dom";
 import PlantsDetailDescr from "../components/PlantsDetailDescr";
 import Loader from "../components/Loader";
-import HorizontalScrollbar from "../components/HorizontalScrollBar";
+// import HorizontalScrollbar from "../components/HorizontalScrollBar";
 
 const PlantsDetailsPage = ({ plants, setLoading, loading }) => {
    const [plantDetails, setPlantDetails] = useState({});
@@ -62,7 +62,7 @@ const PlantsDetailsPage = ({ plants, setLoading, loading }) => {
                </>
             )}
          </Stack>
-         <Box mt="50px" mb="20px">
+         {/* <Box mt="50px" mb="20px">
             <Typography
                component="h3"
                mb="25px"
@@ -74,7 +74,7 @@ const PlantsDetailsPage = ({ plants, setLoading, loading }) => {
                Check out more plants...
             </Typography>
             <HorizontalScrollbar plants={plants} />
-         </Box>
+         </Box> */}
       </>
    );
 };
