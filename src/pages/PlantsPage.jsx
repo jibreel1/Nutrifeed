@@ -5,8 +5,15 @@ import PlantCard from "../components/PlantCard";
 
 import Loader from "../components/Loader";
 
-const PlantsPage = ({ plants, setPlants, isLoading }) => {
-   // console.log(plants);
+const PlantsPage = ({
+   plants,
+   setPlants,
+   isLoading,
+   onAdd,
+   onRemove,
+   cartItems,
+}) => {
+   // console.log(cartItems);
    const [searchByName, setSearchByName] = useState("");
    const [searchByScience, setSearchByScience] = useState("");
 
@@ -113,7 +120,15 @@ const PlantsPage = ({ plants, setPlants, isLoading }) => {
                      } else return false;
                   })
                   .map(plant => {
-                     return <PlantCard plant={plant} key={plant.id} />;
+                     return (
+                        <PlantCard
+                           plant={plant}
+                           key={plant.id}
+                           onAdd={onAdd}
+                           onRemove={onRemove}
+                           item={cartItems.find(x => x.id === plant.id)}
+                        />
+                     );
                   })}
             </Box>
          )}

@@ -13,6 +13,7 @@ const Features = () => {
    return (
       <Box
          className="features"
+         mb="50px"
          sx={{
             textAlign: "center",
             px: { xs: "32px", md: "54px", lg: "72px" },

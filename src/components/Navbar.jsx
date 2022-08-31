@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
    PersonOutlineOutlined,
    SearchOutlined,
@@ -11,9 +11,12 @@ import {
 import Logo from "../assets/nurtifeed-logo.png";
 
 import Sidebar from "./Sidebar";
+import CartCard from "./CartCard";
 
-const Navbar = () => {
+const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
    const [showMenubar, setShowMenubar] = useState(false);
+   const [showCart, setShowCart] = useState(false);
+   const location = useLocation();
 
    const links = [
       {
@@ -65,7 +68,10 @@ const Navbar = () => {
             }}
          >
             {links.map(link => (
-               <li key={link.id}>
+               <li
+                  key={link.id}
+                  className={location.pathname === link.path ? "active" : ""}
+               >
                   <Link to={link.path}>{link.name}</Link>
                </li>
             ))}
@@ -80,15 +86,42 @@ const Navbar = () => {
          >
             <SearchOutlined sx={{ display: { xs: "none", sm: "block" } }} />
             <PersonOutlineOutlined cursor="pointer" />
-            <ShoppingCartOutlined cursor="pointer" />
+            <Box
+               position="relative"
+               onClick={() => {
+                  setShowCart(!showCart);
+                  setShowMenubar(false);
+               }}
+            >
+               {countProducts ? (
+                  <Box
+                     position="absolute"
+                     color="#fff"
+                     bgcolor="hsl(26, 100%, 55%)"
+                     borderRadius="10px"
+                     p="0 4px"
+                     top="-7px"
+                     right="0"
+                  >
+                     <Typography fontSize="12px">{countProducts}</Typography>
+                  </Box>
+               ) : (
+                  ""
+               )}
+               <ShoppingCartOutlined cursor="pointer" />
+            </Box>
             <MenuOutlined
                sx={{ display: { xs: "block", sm: "none" }, cursor: "pointer" }}
                onClick={() => {
                   setShowMenubar(!showMenubar);
+                  setShowCart(false);
                }}
             />
          </Box>
          <Sidebar toggle={ToggleSidebar} links={links} showMenu={showMenubar} />
+         {showCart && (
+            <CartCard cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />
+         )}
       </Box>
    );
 };

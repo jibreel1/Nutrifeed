@@ -37,12 +37,17 @@ const RightArrow = () => {
    );
 };
 
-const HorizontalScrollbar = ({ plants }) => {
+const HorizontalScrollbar = ({ plants, onAdd, onRemove, cartItems }) => {
    return (
       <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
          {plants.slice(0, 7).map(plant => (
             <Box key={plant.id} mx="20px" height="515px">
-               <PlantCard plant={plant} />
+               <PlantCard
+                  plant={plant}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  item={cartItems.find(x => x.id === plant.id)}
+               />
             </Box>
          ))}
       </ScrollMenu>

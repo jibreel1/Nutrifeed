@@ -28,10 +28,9 @@ const Wrapper = ({ children }) => {
 const App = () => {
    const [plants, setPlants] = useState([]);
    const [loading, setLoading] = useState(false);
-   const [count, setCount] = useState(0);
-   const plantsCollectionRef = collection(db, "plants");
+   const [cartItems, setCartItems] = useState([]);
 
-   // console.log(loading);
+   const plantsCollectionRef = collection(db, "plants");
 
    useEffect(() => {
       const getPlants = async () => {
@@ -43,12 +42,65 @@ const App = () => {
       getPlants(); // eslint-disable-next-line
    }, []);
 
+   const onAdd = plant => {
+      const exist = cartItems.find(x => x.id === plant.id);
+      if (exist) {
+         const newCartItems = cartItems.map(x =>
+            x.id === plant.id ? { ...exist, qty: exist.qty + 1 } : x
+         );
+         setCartItems(newCartItems);
+         localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      } else {
+         const newCartItems = [...cartItems, { ...plant, qty: 1 }];
+         setCartItems(newCartItems);
+         localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      }
+   };
+
+   const onRemove = plant => {
+      const exist = cartItems.find(x => x.id === plant.id);
+      if (exist.qty === 1) {
+         const newCartItems = cartItems.filter(x => x.id !== plant.id);
+         setCartItems(newCartItems);
+         localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      } else {
+         const newCartItems = cartItems.map(x =>
+            x.id === plant.id ? { ...exist, qty: exist.qty - 1 } : x
+         );
+         setCartItems(newCartItems);
+         localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      }
+   };
+
+   useEffect(() => {
+      setCartItems(
+         localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : []
+      );
+   }, []);
+
    return (
       <Router>
          <Wrapper />
-         <Navbar />
+         <Navbar
+            countProducts={cartItems.length}
+            cartItems={cartItems}
+            onAdd={onAdd}
+            onRemove={onRemove}
+         />
          <Routes>
-            <Route path="/" element={<Home plants={plants} />} />
+            <Route
+               path="/"
+               element={
+                  <Home
+                     plants={plants}
+                     onAdd={onAdd}
+                     onRemove={onRemove}
+                     cartItems={cartItems}
+                  />
+               }
+            />
             <Route
                path="/plantsPage"
                element={
@@ -56,6 +108,9 @@ const App = () => {
                      plants={plants}
                      setPlants={setPlants}
                      isLoading={loading}
+                     onAdd={onAdd}
+                     onRemove={onRemove}
+                     cartItems={cartItems}
                   />
                }
             />
@@ -66,8 +121,6 @@ const App = () => {
                      plants={plants}
                      loading={loading}
                      setLoading={setLoading}
-                     count={count}
-                     setCount={setCount}
                   />
                }
             />

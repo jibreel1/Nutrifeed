@@ -4,13 +4,13 @@ import About from "../components/About";
 import Plants from "../components/Plants";
 import Order from "../components/Order";
 
-const Home = ({ plants }) => {
+const Home = ({ plants, onAdd, onRemove, cartItems }) => {
    return (
       <div>
          <Hero />
          <Features />
          <About />
-         <Plants plants={plants} />
+         <Plants plants={plants} onAdd={onAdd} onRemove={onRemove} />
          <Order />
       </div>
    );

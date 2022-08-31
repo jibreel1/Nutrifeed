@@ -86,9 +86,8 @@ const Hero = () => {
                   gap="5px"
                   sx={{ cursor: "pointer" }}
                >
-                  <Link to="/plantsPage">
-                     Explore Plants <EastOutlined />
-                  </Link>
+                  <Link to="/plantsPage">Explore Plants</Link>
+                  <EastOutlined />
                </Typography>
             </Box>
          </Box>

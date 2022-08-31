@@ -1,15 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { AddOutlined, RemoveOutlined } from "@mui/icons-material";
-import { ShoppingCartOutlined } from "@mui/icons-material";
 
-const PlantsDetailDescr = ({
-   name,
-   scientific,
-   description,
-   price,
-   count,
-   setCount,
-}) => {
+const PlantsDetailDescr = ({ name, scientific, description, price }) => {
    return (
       <Box
          flex="1"
@@ -74,74 +65,6 @@ const PlantsDetailDescr = ({
          >
             ${price}.00
          </Typography>
-         <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            gap="25px"
-            sx={{ flexDirection: { xs: "column", lg: "row" } }}
-         >
-            <Box
-               flex="1"
-               display="flex"
-               alignItems="center"
-               justifyContent="space-between"
-               p="10px 20px"
-               bgcolor="hsl(223, 64%, 98%)"
-               borderRadius="10px"
-               sx={{ width: { xs: "100%", sm: "450px", md: "100%" } }}
-            >
-               <Box
-                  className="math"
-                  onClick={() => {
-                     count > 0 && setCount(count - 1);
-                  }}
-               >
-                  <RemoveOutlined />
-               </Box>
-               <Typography
-                  fontWeight="700"
-                  color="hsl(220, 13%, 13%)"
-                  fontSize="20px"
-               >
-                  {count}
-               </Typography>
-               <Box
-                  className="math"
-                  onClick={() => {
-                     setCount(count + 1);
-                  }}
-               >
-                  <AddOutlined />
-               </Box>
-            </Box>
-            <Box
-               flex="2"
-               display="flex"
-               alignItems="center"
-               justifyContent="center"
-               bgcolor="#01321c"
-               borderRadius="10px"
-               p="20px"
-               gap="20px"
-               boxShadow="0 30px 30px hsla(153, 96%, 10%, 0.5)"
-               sx={{
-                  cursor: "pointer",
-                  width: { xs: "100%", sm: "450px", md: "100%" },
-               }}
-               // onClick={() => handleAddCart()}
-            >
-               <ShoppingCartOutlined sx={{ color: "#fff" }} />
-               <Typography
-                  color="#fff"
-                  fontWeight="700"
-                  letterSpacing="1.2px"
-                  fontSize="18px"
-               >
-                  Add to Cart
-               </Typography>
-            </Box>
-         </Box>
       </Box>
    );
 };

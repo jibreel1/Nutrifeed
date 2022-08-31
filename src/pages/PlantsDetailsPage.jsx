@@ -7,13 +7,7 @@ import PlantsDetailDescr from "../components/PlantsDetailDescr";
 import Loader from "../components/Loader";
 import HorizontalScrollbar from "../components/HorizontalScrollBar";
 
-const PlantsDetailsPage = ({
-   plants,
-   setLoading,
-   loading,
-   count,
-   setCount,
-}) => {
+const PlantsDetailsPage = ({ plants, setLoading, loading }) => {
    const [plantDetails, setPlantDetails] = useState({});
    const location = useLocation();
    const plantsCollectionDetailsRef = doc(db, "plants", location.state.id);
@@ -64,8 +58,6 @@ const PlantsDetailsPage = ({
                      description={description}
                      scientific={scientific_name}
                      price={price}
-                     count={count}
-                     setCount={setCount}
                   />
                </>
             )}

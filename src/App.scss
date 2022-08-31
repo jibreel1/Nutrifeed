@@ -57,9 +57,16 @@ li {
             height: 3px;
             top: 30px;
             left: 0;
-            background-color: #ffc57f;
+            background-color: rgba(255, 197, 127, 0.6);
             transition: transform 0.3s ease-in-out;
             transform: scale(0);
+         }
+
+         &.active {
+            &::before {
+               background-color: #ffc57f;
+               transform: scale(1);
+            }
          }
 
          &:hover {
@@ -197,11 +204,11 @@ li {
    gap: 100px;
    text-align: center;
 
-   margin-top: 100px;
    background-image: url("./assets/nurtifeed-plant_3.png");
    background-repeat: no-repeat;
-   background-position: center;
+   background-position: center right;
    background-size: cover;
+   background-attachment: fixed;
    width: 100%;
    height: 100vh;
 
@@ -465,10 +472,30 @@ li {
    display: flex;
    align-items: center;
    cursor: pointer;
-   padding: 10px;
+   padding: 5px;
    border-radius: 50%;
 
    &:hover {
       background-color: hsla(153, 96%, 10%, 0.5);
    }
+}
+
+.cart {
+   z-index: 3;
+   position: absolute;
+   top: 80px;
+   right: 0;
+   background-color: #fff;
+   box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+
+   @media screen and (min-width: 600px) {
+      right: 40px;
+   }
+}
+
+.thumbnail {
+   width: 50px;
+   height: 50px;
+   object-fit: cover;
+   border-radius: 8px;
 }
