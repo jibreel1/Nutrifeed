@@ -13,6 +13,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PlantsPage from "./pages/PlantsPage";
 import PlantsDetailsPage from "./pages/PlantsDetailsPage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 import "./App.scss";
@@ -106,7 +108,6 @@ const App = () => {
                element={
                   <PlantsPage
                      plants={plants}
-                     setPlants={setPlants}
                      isLoading={loading}
                      onAdd={onAdd}
                      onRemove={onRemove}
@@ -124,6 +125,8 @@ const App = () => {
                   />
                }
             />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
          </Routes>
          <Footer />
       </Router>

@@ -1,21 +1,25 @@
 import { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Pagination, Box, Stack, Typography } from "@mui/material";
 
 import PlantCard from "../components/PlantCard";
 
 import Loader from "../components/Loader";
 
-const PlantsPage = ({
-   plants,
-   setPlants,
-   isLoading,
-   onAdd,
-   onRemove,
-   cartItems,
-}) => {
+const PlantsPage = ({ plants, isLoading, onAdd, onRemove, cartItems }) => {
    // console.log(cartItems);
    const [searchByName, setSearchByName] = useState("");
    const [searchByScience, setSearchByScience] = useState("");
+   const [currentPage, setCurrentPage] = useState(1);
+   const plantsPerPage = 15;
+
+   const indexOfLastPlant = currentPage * plantsPerPage;
+   const indexOfFirstPlant = indexOfLastPlant - plantsPerPage;
+   const currentPlant = plants.slice(indexOfFirstPlant, indexOfLastPlant);
+
+   const paginate = (e, value) => {
+      setCurrentPage(value);
+      window.scrollTo({ top: 700, behavior: "smooth" });
+   };
 
    plants.sort(function (a, b) {
       if (a.name < b.name) {
@@ -36,7 +40,7 @@ const PlantsPage = ({
             sx={{ px: { xs: "32px", md: "54px", lg: "72px" } }}
             className="plant-hero"
          >
-            <div className="overlay"></div>
+            <div className="plant-overlay"></div>
             <Box
                color="#fff"
                zIndex="2"
@@ -106,7 +110,7 @@ const PlantsPage = ({
                justifyContent="center"
                sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, mt: "32px" }}
             >
-               {plants
+               {currentPlant
                   .filter(plant => {
                      if (searchByName === "" && searchByScience === "") {
                         return plant;
@@ -132,6 +136,19 @@ const PlantsPage = ({
                   })}
             </Box>
          )}
+         <Stack mt="100px" alignItems="center">
+            {plants.length > 9 && (
+               <Pagination
+                  color="standard"
+                  shape="rounded"
+                  defaultPage={1}
+                  count={Math.ceil(plants.length / plantsPerPage)}
+                  page={currentPage}
+                  onChange={paginate}
+                  size="large"
+               />
+            )}
+         </Stack>
       </Box>
    );
 };

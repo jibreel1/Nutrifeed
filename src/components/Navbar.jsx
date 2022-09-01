@@ -27,7 +27,7 @@ const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
       {
          id: "2",
          name: "About",
-         path: "#about",
+         path: "/about",
       },
       {
          id: "3",
@@ -37,12 +37,16 @@ const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
       {
          id: "4",
          name: "Contacts",
-         path: "#contact",
+         path: "/contact",
       },
    ];
 
    const ToggleSidebar = () => {
       showMenubar === true ? setShowMenubar(false) : setShowMenubar(true);
+   };
+
+   const ToggleCart = () => {
+      showCart === true ? setShowCart(false) : setShowCart(true);
    };
 
    return (
@@ -119,9 +123,13 @@ const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
             />
          </Box>
          <Sidebar toggle={ToggleSidebar} links={links} showMenu={showMenubar} />
-         {showCart && (
-            <CartCard cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />
-         )}
+         <CartCard
+            toggle={ToggleCart}
+            cartItems={cartItems}
+            onAdd={onAdd}
+            onRemove={onRemove}
+            showCart={showCart}
+         />
       </Box>
    );
 };
