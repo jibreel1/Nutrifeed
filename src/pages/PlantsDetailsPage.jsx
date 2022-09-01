@@ -34,6 +34,7 @@ const PlantsDetailsPage = ({ plants, setLoading, loading }) => {
                flexDirection: { xs: "column", md: "row" },
                gap: { xs: "30px" },
                px: { md: "54px", lg: "72px" },
+               mt: { xs: "0px", md: "50px" },
             }}
          >
             {loading ? (

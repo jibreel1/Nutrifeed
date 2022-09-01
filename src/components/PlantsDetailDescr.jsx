@@ -35,11 +35,19 @@ const PlantsDetailDescr = ({ name, scientific, description, price }) => {
             {name}
          </Typography>
          <Typography
-            bgcolor="#01321c"
+            component="span"
+            color="hsl(219, 9%, 45%)"
+            fontWeight="400"
+            fontSize="16px"
+         >
+            Scientific Name:
+         </Typography>
+         <Typography
+            // bgcolor="#01321c"
             component="p"
             fontWeight="bold"
             textTransform="uppercase"
-            color="#ffc57f"
+            color="#000"
             fontSize="14px"
             letterSpacing="1.2px"
             p="7px 15px"
@@ -51,20 +59,26 @@ const PlantsDetailDescr = ({ name, scientific, description, price }) => {
          <Typography component="p" letterSpacing="1px" lineHeight="1.6">
             {description}
          </Typography>
-         <Typography
-            component="h2"
-            fontWeight="700"
-            letterSpacing="1px"
-            sx={{
-               fontSize: "24px",
-               display: "flex",
-               alignItems: "center",
-               gap: "20px",
-               my: "20px",
-            }}
-         >
-            ${price}.00
-         </Typography>
+         <Box display="flex" alignItems="center" gap="15px" my="20px">
+            <Typography
+               // component="span"
+               color="hsl(219, 9%, 45%)"
+               fontWeight="400"
+               fontSize="16px"
+            >
+               Price:
+            </Typography>
+            <Typography
+               component="h2"
+               fontWeight="700"
+               letterSpacing="1px"
+               sx={{
+                  fontSize: "24px",
+               }}
+            >
+               ${price}.00
+            </Typography>
+         </Box>
       </Box>
    );
 };
