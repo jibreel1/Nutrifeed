@@ -53,11 +53,21 @@ const Footer = () => {
          >
             <p className="footer-design">
                Designed with <VolunteerActivismOutlined /> by
-               <a href="#!" className="footer-designer">
+               <a
+                  href="https://www.linkedin.com/in/jibreel-osunkoya/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-designer"
+               >
                   Jibreel
                </a>
                and
-               <a href="#!" className="footer-designer">
+               <a
+                  href="https://www.behance.net/adelekerasaq10"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-designer"
+               >
                   Rasaq
                </a>
             </p>
