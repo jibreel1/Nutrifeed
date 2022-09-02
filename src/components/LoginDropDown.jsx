@@ -15,7 +15,7 @@ const LoginDropDown = ({
 
    const signUserOut = () => {
       signOut(auth).then(() => {
-         localStorage.clear();
+         localStorage.removeItem("isAuth");
          setIsAuth(false);
          navigate("/login");
       });
