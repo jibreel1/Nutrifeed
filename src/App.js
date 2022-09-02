@@ -15,6 +15,7 @@ import PlantsPage from "./pages/PlantsPage";
 import PlantsDetailsPage from "./pages/PlantsDetailsPage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
 import Footer from "./components/Footer";
 
 import "./App.scss";
@@ -31,6 +32,8 @@ const App = () => {
    const [plants, setPlants] = useState([]);
    const [loading, setLoading] = useState(false);
    const [cartItems, setCartItems] = useState([]);
+   // const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+   const [isAuth, setIsAuth] = useState(false);
 
    const plantsCollectionRef = collection(db, "plants");
 
@@ -90,6 +93,8 @@ const App = () => {
             cartItems={cartItems}
             onAdd={onAdd}
             onRemove={onRemove}
+            isAuth={isAuth}
+            setIsAuth={setIsAuth}
          />
          <Routes>
             <Route
@@ -127,6 +132,7 @@ const App = () => {
             />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
          </Routes>
          <Footer />
       </Router>

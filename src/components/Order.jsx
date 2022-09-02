@@ -48,6 +48,7 @@ const Order = () => {
    return (
       <Box
          mt="100px"
+         mb="70px"
          sx={{
             textAlign: "center",
             px: { xs: "32px", md: "54px", lg: "72px" },

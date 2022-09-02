@@ -6,7 +6,6 @@ import PlantCard from "../components/PlantCard";
 import Loader from "../components/Loader";
 
 const PlantsPage = ({ plants, isLoading, onAdd, onRemove, cartItems }) => {
-   // console.log(cartItems);
    const [searchByName, setSearchByName] = useState("");
    const [searchByScience, setSearchByScience] = useState("");
    const [currentPage, setCurrentPage] = useState(1);
@@ -16,20 +15,18 @@ const PlantsPage = ({ plants, isLoading, onAdd, onRemove, cartItems }) => {
    const indexOfFirstPlant = indexOfLastPlant - plantsPerPage;
    const currentPlant = plants.slice(indexOfFirstPlant, indexOfLastPlant);
 
+   plants.sort(function (a, b) {
+      if (a.name < b.name) {
+         return -1;
+      } else if (a.name > b.name) {
+         return 1;
+      } else return 0;
+   });
+
    const paginate = (e, value) => {
       setCurrentPage(value);
       window.scrollTo({ top: 700, behavior: "smooth" });
    };
-
-   plants.sort(function (a, b) {
-      if (a.name < b.name) {
-         return -1;
-      }
-      if (a.name > b.name) {
-         return 1;
-      }
-      return 0;
-   });
 
    return (
       <Box className="plant">
@@ -137,7 +134,7 @@ const PlantsPage = ({ plants, isLoading, onAdd, onRemove, cartItems }) => {
             </Box>
          )}
          <Stack mt="100px" alignItems="center">
-            {plants.length > 9 && (
+            {plants.length > 15 && (
                <Pagination
                   color="standard"
                   shape="rounded"

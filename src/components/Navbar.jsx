@@ -12,10 +12,19 @@ import Logo from "../assets/nurtifeed-logo.png";
 
 import Sidebar from "./Sidebar";
 import CartCard from "./CartCard";
+import LoginDropDown from "./LoginDropDown";
 
-const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
+const Navbar = ({
+   countProducts,
+   cartItems,
+   onAdd,
+   onRemove,
+   isAuth,
+   setIsAuth,
+}) => {
    const [showMenubar, setShowMenubar] = useState(false);
    const [showCart, setShowCart] = useState(false);
+   const [showLoginLinks, setShowLoginLinks] = useState(false);
    const location = useLocation();
 
    const links = [
@@ -41,11 +50,29 @@ const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
       },
    ];
 
-   const ToggleSidebar = () => {
+   const loginLinks = [
+      {
+         id: "1",
+         name: "Sign Up",
+         path: "#!",
+      },
+      {
+         id: "2",
+         name: "Login",
+         path: "/login",
+      },
+      {
+         id: "3",
+         name: "Help Center",
+         path: "#!",
+      },
+   ];
+
+   const toggleSidebar = () => {
       showMenubar === true ? setShowMenubar(false) : setShowMenubar(true);
    };
 
-   const ToggleCart = () => {
+   const toggleCart = () => {
       showCart === true ? setShowCart(false) : setShowCart(true);
    };
 
@@ -89,12 +116,22 @@ const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
             }}
          >
             <SearchOutlined sx={{ display: { xs: "none", sm: "block" } }} />
-            <PersonOutlineOutlined cursor="pointer" />
+            <Box
+               position="relative"
+               onClick={() => {
+                  setShowLoginLinks(!showLoginLinks);
+                  setShowMenubar(false);
+                  setShowCart(false);
+               }}
+            >
+               <PersonOutlineOutlined cursor="pointer" />
+            </Box>
             <Box
                position="relative"
                onClick={() => {
                   setShowCart(!showCart);
                   setShowMenubar(false);
+                  setShowLoginLinks(false);
                }}
             >
                {countProducts ? (
@@ -119,16 +156,24 @@ const Navbar = ({ countProducts, cartItems, onAdd, onRemove }) => {
                onClick={() => {
                   setShowMenubar(!showMenubar);
                   setShowCart(false);
+                  setShowLoginLinks(false);
                }}
             />
          </Box>
-         <Sidebar toggle={ToggleSidebar} links={links} showMenu={showMenubar} />
+         <Sidebar toggle={toggleSidebar} links={links} showMenu={showMenubar} />
          <CartCard
-            toggle={ToggleCart}
+            toggle={toggleCart}
             cartItems={cartItems}
             onAdd={onAdd}
             onRemove={onRemove}
             showCart={showCart}
+         />
+         <LoginDropDown
+            links={loginLinks}
+            showLoginLinks={showLoginLinks}
+            setShowLoginLinks={setShowLoginLinks}
+            isAuth={isAuth}
+            setIsAuth={setIsAuth}
          />
       </Box>
    );

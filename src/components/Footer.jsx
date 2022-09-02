@@ -12,7 +12,7 @@ import Subscribe from "./Subscribe";
 
 const Footer = () => {
    return (
-      <Box mt="70px" className="footer">
+      <Box className="footer">
          <Subscribe />
          <Box
             sx={{
