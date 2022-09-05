@@ -6,6 +6,8 @@ import {
    useLocation,
 } from "react-router-dom";
 
+import { Backdrop } from "@mui/material";
+
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase-config";
 
@@ -32,8 +34,9 @@ const App = () => {
    const [plants, setPlants] = useState([]);
    const [loading, setLoading] = useState(false);
    const [cartItems, setCartItems] = useState([]);
-   // const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-   const [isAuth, setIsAuth] = useState(false);
+   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+   const [open, setOpen] = useState(false);
+   // const [isAuth, setIsAuth] = useState(false);
 
    const plantsCollectionRef = collection(db, "plants");
 
@@ -46,6 +49,19 @@ const App = () => {
       };
       getPlants(); // eslint-disable-next-line
    }, []);
+
+   // const handleToggle = () => {
+   //    setOpen(!open);
+   // };
+   // if (!isAuth) {
+   //    <Backdrop
+   //       sx={{ color: "#fff", zIndex: theme => theme.zIndex.drawer + 1 }}
+   //       open={open}
+   //       onClick={handleToggle}
+   //    >
+   //       <div>Please Login</div>
+   //    </Backdrop>;
+   // }
 
    const onAdd = plant => {
       const exist = cartItems.find(x => x.id === plant.id);

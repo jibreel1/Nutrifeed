@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { AddOutlined, RemoveOutlined } from "@mui/icons-material";
 
 const PlantCard = ({ plant, onAdd, onRemove, item }) => {
-   // console.log(item);
    return (
       <Box className="plant-card">
          <img src={plant.image} alt={plant.name} loading="lazy" />

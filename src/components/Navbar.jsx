@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { auth } from "../firebase-config";
 
-import { Box, Typography } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 import {
    PersonOutlineOutlined,
    SearchOutlined,
@@ -80,7 +81,10 @@ const Navbar = ({
       <Box
          component="nav"
          className="navbar"
-         sx={{ px: { xs: "32px", md: "54px", lg: "72px" }, py: "25px" }}
+         sx={{
+            px: { xs: "20px", sm: "32px", md: "54px", lg: "72px" },
+            py: "25px",
+         }}
       >
          <Box
             className="navbar_img"
@@ -111,7 +115,8 @@ const Navbar = ({
             className="navbar_icons"
             sx={{
                display: "flex",
-               gap: "18px",
+               alignItems: "center",
+               gap: { xs: "10px", sm: "18px" },
                color: "#fff",
             }}
          >
@@ -124,7 +129,16 @@ const Navbar = ({
                   setShowCart(false);
                }}
             >
-               <PersonOutlineOutlined cursor="pointer" />
+               {!isAuth ? (
+                  <PersonOutlineOutlined cursor="pointer" />
+               ) : (
+                  <Avatar
+                     src={auth?.currentUser?.photoURL}
+                     referrerPolicy="no-referrer"
+                     alt="profile-pic"
+                     sx={{ width: 26, height: 26, cursor: "pointer" }}
+                  />
+               )}
             </Box>
             <Box
                position="relative"

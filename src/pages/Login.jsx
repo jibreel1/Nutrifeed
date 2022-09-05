@@ -19,10 +19,11 @@ const Login = ({ setIsAuth }) => {
          className="login"
          sx={{
             width: { sm: "400px" },
-            m: { xs: "50px", sm: "50px auto" },
+            m: { xs: "32px", sm: "50px auto" },
+            p: "10px",
          }}
       >
-         <Typography component="p" fontSize="16px">
+         <Typography component="p" fontSize="16px" textAlign="center">
             Sign In With Google to Continue
          </Typography>
          <button className="login-btn" onClick={signInWithGoogle}>
